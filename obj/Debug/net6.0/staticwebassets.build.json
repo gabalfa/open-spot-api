@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "lA9tISCebLfqpsn/LyPrC0xuYvuXvwAqZedU8j+ZTZw=",
+  "Source": "open-spot-api",
+  "BasePath": "_content/open-spot-api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

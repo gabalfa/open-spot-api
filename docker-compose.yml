@@ -1,0 +1,36 @@
+version: "3.9"
+networks:
+  open-spot-dev:
+    driver: bridge
+services:
+  app: 
+    container_name: open-spot
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "80:80"
+    networks:
+      - open-spot-dev
+    depends_on:
+      - postgres_db
+    environment:
+      - OpenSpotDBConnectionString=Server=postgres_db;User ID=openspotDBAdmin;Password=openspotDBp4ssw0rd;Port=5432;Database=openspotDB;
+
+  postgres_db:
+    container_name: postgres_db
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=openspotDBAdmin
+      - POSTGRES_PASSWORD=openspotDBp4ssw0rd
+      - POSTGRES_DB=openspotDB
+    ports:
+      - "5432:5432"
+    networks:
+      - open-spot-dev
+    volumes:
+      - open-spot-data:/var/lib/postgresql/data
+    restart: always
+    
+volumes:
+  open-spot-data:
