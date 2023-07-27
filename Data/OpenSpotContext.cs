@@ -8,6 +8,7 @@ namespace open_spot_api.Data
     {
         public OpenSpotContext(DbContextOptions<OpenSpotContext> options) : base(options) { }
         public DbSet<Spot> Spots { get; set; }
+        public DbSet<Country> Countries { get; set; }
         // protected override void OnModelCreating(ModelBuilder modelBuilder)  
         // {
         // List<Spot> spotsInit = new List<Spot>();

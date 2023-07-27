@@ -14,6 +14,7 @@ builder.Services.AddSwaggerGen();
 var connectionString = builder.Configuration.GetConnectionString("OpenSpotDBConnectionString");
 builder.Services.AddDbContext<OpenSpotContext>(options => options.UseNpgsql(connectionString));
 builder.Services.AddScoped<ISpotService, SpotService>();
+builder.Services.AddScoped<ICountryService, CountryService>();
 
 var app = builder.Build();
 
